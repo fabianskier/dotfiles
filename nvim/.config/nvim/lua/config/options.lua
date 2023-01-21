@@ -1,6 +1,11 @@
+vim.g.mapleader = " "
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 local options = {
   -- add in alphabetical order
   backup          = false,
+  breakindent     = true,
   clipboard       = "unnamedplus",
   cmdheight       = 2,
   completeopt     = { "menuone", "noselect" },
@@ -29,7 +34,8 @@ local options = {
   swapfile        = false,
   tabstop         = 2,
   termguicolors   = true,
-  timeoutlen      = 100,
+  timeout         = true,
+  timeoutlen      = 300,
   undofile        = true,
   updatetime      = 300,
   writebackup     = false,
@@ -37,14 +43,6 @@ local options = {
 }
 
 vim.opt.shortmess:append "c"
-
--- disable netrw at the very start of your init.lua (strongly advised)
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
---  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
 
 for k, v in pairs(options) do
   vim.opt[k] = v
