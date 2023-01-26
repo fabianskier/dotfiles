@@ -1,6 +1,6 @@
 return {
   "DaikyXendo/nvim-tree.lua",
-    dependencies = { 
+    dependencies = {
       "kyazdani42/nvim-web-devicons",
     },
     config = function()
