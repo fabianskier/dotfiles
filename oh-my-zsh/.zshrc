@@ -30,8 +30,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm
 
-#export RAILS_ENV=test
-
 # gnu-sed
 export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
 
@@ -40,9 +38,6 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 # psql
 export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
-
-# rbenv
-# eval "$(rbenv init - zsh)"
 
 # shims
 export PATH="/Users/fabianskier/.rbenv/shims:$PATH"
@@ -86,35 +81,20 @@ alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset
 alias glol='git log --pretty=oneline --abbrev-commit'
 alias gcs='git commit -S'
 
-#------------------------------------------------------------------------
-# Environment variables
-#------------------------------------------------------------------------
+# Docker
+alias d='docker'
+alias dc='docker-compose'
+alias dcb='docker-compose build'
+alias dcl='docker-compose logs -f'
+alias dcu='docker-compose up'
+alias dcud='docker-compose up -d'
+alias dcd='docker-compose down'
+alias dcp='docker container prune -f'
+alias dip='docker image prune -a -f'
+alias dvp='docker volume prune -f'
+alias dr='dcd && dcp && dip && dvp && dcb && dcud'
 
-# aws s3
-export AWS_ACCESS_KEY_ID=<your_access_key_id>
-export AWS_SECRET_ACCESS_KEY=<your_secret_access_key>
-
-# dev database
-export DB_HOST=<your_db_host>
-export DB_USERNAME=<your_db_username>
-export DB_PASSWORD=<your_db_password>
-
-# contrib
-export CONTRIB_SYS_USER=<your_contrib_sys_user>
-export CONTRIB_SYS_PASSWORD=<your_contrib_sys_password>
-
-# vapor database variables
-POSTGRES_DATABASE_HOST=<your_postgres_database_host>
-POSTGRES_DATABASE_PORT=<your_postgres_database_port>
-POSTGRES_DATABASE_USERNAME=<your_postgres_database_username>
-POSTGRES_DATABASE_PASSWORD=<your_postgres_database_password>
-POSTGRES_DATABASE_NAME=<your_postgres_database_name>
-
-#.npmrc
-export NPM_TOKEN=<your_npm_token>
-
-# pg_analyze
-export PGANALYZE_PASSWORD=<your_pganalyze_password>
-
-# userfront
-export USERFRONT_API_KEY=<your_userfront_api_key>
+# source extra files
+if [ -d "$HOME/.local/zsh" ] ; then
+    for f in ~/.local/zsh/*; do source $f; done
+fi
