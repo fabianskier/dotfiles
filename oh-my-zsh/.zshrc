@@ -8,7 +8,12 @@
 # Main settings
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="norm"
-plugins=(git)
+
+plugins=(
+  git
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  )
 
 # Completion settings
 COMPLETION_WAITING_DOTS=true
