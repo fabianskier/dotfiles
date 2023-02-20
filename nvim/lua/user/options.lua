@@ -42,6 +42,10 @@ vim.opt.shortmess:append "c"
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+--  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
 for k, v in pairs(options) do
   vim.opt[k] = v
 end

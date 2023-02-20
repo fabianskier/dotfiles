@@ -1,51 +1,65 @@
-local fn = vim.fn
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
--- Automatically install packer
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-	PACKER_BOOTSTRAP = fn.system({
-		"git",
-		"clone",
-		"--depth",
-		"1",
-		"https://github.com/wbthomason/packer.nvim",
-		install_path,
-	})
-	print("Installing packer close and reopen Neovim...")
-	vim.cmd([[packadd packer.nvim]])
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git", -- A modern plugin manager for Neovim
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]])
+require("lazy").setup({
+	'tpope/vim-fugitive', -- A Git wrapper so awesome, it should be illegal
+  'tpope/vim-rhubarb', -- GitHub extension for fugitive.vim
+	'tpope/vim-sleuth', -- Heuristically set buffer options
 
--- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-	return
-end
+	{
+    'neovim/nvim-lspconfig', -- Quickstart configs for Nvim LSP
+    dependencies = {
+      'williamboman/mason.nvim', -- Easily install and manage LSP servers, DAP servers, linters, and formatters
+      'williamboman/mason-lspconfig.nvim', -- Extension to mason.nvim that makes it easier to use lspconfig with mason.nvim.
+      { 'j-hui/fidget.nvim', opts = {} }, -- Standalone UI for nvim-lsp progress
+      'folke/neodev.nvim', -- Neovim setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API.
+    },
+  },
 
--- Have packer use a popup window
-packer.init({
-	display = {
-		open_fn = function()
-			return require("packer.util").float({ border = "rounded" })
-		end,
-	},
+	{
+    'hrsh7th/nvim-cmp', -- A completion plugin for neovim coded in Lua.
+    dependencies = { 
+			'hrsh7th/cmp-nvim-lsp', -- nvim-cmp source for neovim builtin LSP client
+			'L3MON4D3/LuaSnip', -- Snippet Engine for Neovim written in Lua.
+			'saadparwaiz1/cmp_luasnip' -- luasnip completion source for nvim-cmp
+		},
+  },
+
+	{ 'folke/which-key.nvim', opts = {} }, -- WhichKey is a lua plugin for Neovim 0.5 that displays a popup with possible keybindings of the command you started typing.
+
+	{ 
+    'lewis6991/gitsigns.nvim', -- Git integration for buffers
+    opts = {
+      signs = {
+        add = { text = '+' },
+        change = { text = '~' },
+        delete = { text = '_' },
+        topdelete = { text = '‾' },
+        changedelete = { text = '~' },
+      },
+    },
+  },
+
+	{
+    'nvim-lualine/lualine.nvim', -- A blazing fast and easy to configure neovim statusline plugin written in pure lua.
+    opts = {
+      options = {
+        icons_enabled = false,
+        theme = 'onedark',
+        component_separators = '|',
+        section_separators = '',
+      },
+    },
+  },
 })
-
--- Install your plugins here
-return packer.startup(function(use)
-	-- My plugins here
-	use("wbthomason/packer.nvim") -- Have packer manage itself
-	
-	-- Automatically set up your configuration after cloning packer.nvim
-	-- Put this at the end after all plugins
-	if PACKER_BOOTSTRAP then
-		require("packer").sync()
-	end
-end)
