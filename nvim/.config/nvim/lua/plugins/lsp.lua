@@ -49,6 +49,8 @@ return {
     },
     config = function()
       require("mason").setup()
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
       -- TODO: Create a function to automatically setup all LSPs
       require("mason-lspconfig").setup({
         ensure_installed = {
@@ -71,53 +73,113 @@ return {
         },
       })
       require("lspconfig").bashls.setup {
-        on_attach = on_attach
+        capabilities = capabilities,
+        on_attach = on_attach,
       }
       require("lspconfig").clangd.setup {
-        on_attach = on_attach
+        capabilities = capabilities,
+        on_attach = on_attach,
       }
       require("lspconfig").cmake.setup {
-        on_attach = on_attach
+        capabilities = capabilities,
+        on_attach = on_attach,
       }
       require("lspconfig").dockerls.setup {
-        on_attach = on_attach
+        capabilities = capabilities,
+        on_attach = on_attach,
       }
       require("lspconfig").docker_compose_language_service.setup {
-        on_attach = on_attach
+        capabilities = capabilities,
+        on_attach = on_attach,
       }
       require("lspconfig").elixirls.setup {
-        on_attach = on_attach
+        capabilities = capabilities,
+        on_attach = on_attach,
       }
       require("lspconfig").graphql.setup {
-        on_attach = on_attach
+        capabilities = capabilities,
+        on_attach = on_attach,
       }
       require("lspconfig").jsonls.setup {
-        on_attach = on_attach
+        capabilities = capabilities,
+        on_attach = on_attach,
       }
       require("lspconfig").jdtls.setup {
-        on_attach = on_attach
+        capabilities = capabilities,
+        on_attach = on_attach,
       }
       require("lspconfig").lua_ls.setup {
-        on_attach = on_attach
+        capabilities = capabilities,
+        on_attach = on_attach,
       }
       require("lspconfig").marksman.setup {
-        on_attach = on_attach
+        capabilities = capabilities,
+        on_attach = on_attach,
       }
       require("lspconfig").pyright.setup {
-        on_attach = on_attach
+        capabilities = capabilities,
+        on_attach = on_attach,
       }
       require("lspconfig").ruby_ls.setup {
-        on_attach = on_attach
+        capabilities = capabilities,
+        on_attach = on_attach,
       }
       require("lspconfig").sqlls.setup {
-        on_attach = on_attach
+        capabilities = capabilities,
+        on_attach = on_attach,
       }
       require("lspconfig").tsserver.setup {
-        on_attach = on_attach
+        capabilities = capabilities,
+        on_attach = on_attach,
       }
       require("lspconfig").yamlls.setup {
-        on_attach = on_attach
+        capabilities = capabilities,
+        on_attach = on_attach,
       }
       require("neodev").setup()
+      -- nvim-cmp setup
+local cmp = require 'cmp'
+local luasnip = require 'luasnip'
+
+luasnip.config.setup {}
+
+cmp.setup {
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end,
+  },
+  mapping = cmp.mapping.preset.insert {
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete {},
+    ['<CR>'] = cmp.mapping.confirm {
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = true,
+    },
+    ['<Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      else
+        fallback()
+      end
+    end, { 'i', 's' }),
+    ['<S-Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, { 'i', 's' }),
+  },
+  sources = {
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' },
+  },
+}
     end,
 }

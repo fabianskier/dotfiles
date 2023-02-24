@@ -1,5 +1,11 @@
 local builtin = require('telescope.builtin')
 
+-- Window navigation
+vim.keymap.set("n", "<leader>h", "<C-w>h", {})
+vim.keymap.set("n", "<leader>j", "<C-w>j", {})
+vim.keymap.set("n", "<leader>k", "<C-w>k", {})
+vim.keymap.set("n", "<leader>l", "<C-w>l", {})
+
 -- Telescope keymaps
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
