@@ -5,17 +5,17 @@ return {
   },
   config = function()
     require "nvim-treesitter.configs".setup {
-      ensure_installed = { 
-        'c', 
-        'cpp', 
-        'elixir', 
-        'go', 
-        'lua', 
-        'python', 
-        'tsx', 
-        'typescript', 
-        'help', 
-        'vim' 
+      ensure_installed = {
+        'c',
+        'cpp',
+        'elixir',
+        'go',
+        'lua',
+        'python',
+        'tsx',
+        'typescript',
+        'help',
+        'vim'
       },
       highlight = {
         enable = true,
