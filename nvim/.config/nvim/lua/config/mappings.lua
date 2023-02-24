@@ -6,6 +6,18 @@ vim.keymap.set("n", "<leader>j", "<C-w>j", {})
 vim.keymap.set("n", "<leader>k", "<C-w>k", {})
 vim.keymap.set("n", "<leader>l", "<C-w>l", {})
 
+-- Allow gf to open non-exisitent files
+vim.keymap.set("n", "gf", ":edit <cfile><CR>", {})
+
+-- Add indentation
+vim.keymap.set("v", ",", "<gv", {})
+vim.keymap.set("v", ".", ">gv", {})
+
+-- Move text up and down
+vim.keymap.set("v", "<A-j>", ":m .+1<CR>==", {})
+vim.keymap.set("v", "<A-k>", ":m .-2<CR>==", {})
+vim.keymap.set("v", "p", '"_dP', {})
+
 -- Telescope keymaps
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
