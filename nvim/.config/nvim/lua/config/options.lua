@@ -34,10 +34,7 @@ local options = {
   swapfile        = false,
   tabstop         = 2,
   termguicolors   = true,
-  timeout         = true,
-  timeoutlen      = 300,
   undofile        = true,
-  updatetime      = 300,
   writebackup     = false,
   wrap            = false,
 }
