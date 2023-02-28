@@ -1,12 +1,19 @@
 return {
   "nvim-lualine/lualine.nvim",
 
-  opts = {
-    options = {
-      theme = "nightfox",
-      icons_enabled = true,
-      component_separators = '|',
-      section_separators = '',
+  config = function()
+    require("lualine").setup {
+      options = {
+        theme = "nightfox",
+      },
+      sections = {
+  lualine_c = {
+    {
+      'filename',
+      path = 3,
     }
   }
+}
+    }
+    end,
 }
