@@ -1,18 +1,79 @@
-# oh-my-zsh
-export ZSH="$HOME/.oh-my-zsh"
-source $ZSH/oh-my-zsh.sh
+if [[ -f "/opt/homebrew/bin/brew" ]] then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 
-# zsh-autosuggestions 
-# installation: `brew install zsh-autosuggestions`
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-bindkey '^ ' autosuggest-accept
+# Set directory we want to store zinit and plugins
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
-# zsh-syntax-highlighting
-# installation: `brew install zsh-syntax-highlighting`
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Download zinit, if it's not there yet
+if [ ! -d $ZINIT_HOME ]; then
+  mkdir -p "$(dirname $ZINIT_HOME)"
+  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME" || {
+    echo "Failed to clone zinit repository."
+    return 1
+  }
+fi
 
-plugins=(dotenv)
+# Source/Load zinit
+source "${ZINIT_HOME}/zinit.zsh"
 
-# Starship 
+# Plugins
+# -------
+# starship
+zinit ice from"gh-r" as"program" mv"starship* -> starship"
+zinit light starship/starship
+
+# fzf
+zinit ice from"gh-r" as"program" pick"fzf/bin/fzf"
+zinit light junegunn/fzf
+
+# zoxide
+zinit ice from"gh-r" as"program" mv"zoxide-* -> zoxide"
+zinit load ajeetdsouza/zoxide
+
+# zsh
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+zinit light Aloxaf/fzf-tab
+
+# Load completions
+autoload -Uz compinit && compinit
+
+zinit cdreplay -q
+
+# History
+HISTSIZE=5000
+HISTFILE=~/.zsh_history
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+
+# Do not require a leading ‘.’ in a filename to be matched explicitly.
+setopt GLOB_DOTS
+
+# Completion styling
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+
+# Aliases
+alias ls='ls --color'
+
+# Shell integrations
+eval "$(fzf --zsh)"
+eval "$(zoxide init --cmd cd zsh)"
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG=~/.config/starship.toml
+
+# Source/Load zsh extra files
+[[ -f ~/.config/zsh/aliases.zsh ]] && source ~/.config/zsh/aliases.zsh
+[[ -f ~/.local/zsh/secrets.conf ]] && source ~/.local/zsh/secrets.conf
