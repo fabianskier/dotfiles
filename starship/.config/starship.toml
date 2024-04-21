@@ -2,7 +2,14 @@
 add_newline = false
 
 format = '$character'
-right_format = '$directory'
+right_format = '🗂️ $directory$git_branch'
+
+[directory]
+format = '[$path](bold green)[$read_only]($read_only_style) '
+
+[git_branch]
+symbol = '🌱 '
+format = 'on [$symbol$branch(:$remote_branch)](bold green) '
 
 palette = "catppuccin_macchiato"
 
