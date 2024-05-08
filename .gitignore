@@ -1,0 +1,13 @@
+# Ignore all .DS_Store files (common in macOS)
+.DS_Store
+
+# Ignore backup files created by text editors
+*~
+
+# Ignore log files
+*.log
+
+# Ignore other potential tag files
+tags
+ctags
+
