@@ -20,5 +20,3 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 
 # zoxide
 eval "$(zoxide init zsh)"
-
-# secrets must be set in ~/.local/zsh/secrets.conf
