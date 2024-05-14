@@ -1,17 +1,22 @@
 # inserts a blank line between shell prompts
 add_newline = false
 
+# palette
+palette = "catppuccin_macchiato"
+
+# prompt
 format = '$character'
-right_format = '🗂️ $directory$git_branch'
+right_format = '$directory$git_branch'
 
 [directory]
-format = '[$path](bold green)[$read_only]($read_only_style) '
+home_symbol = '🏠'
+format = ' at [$path]($style)[$read_only]($read_only_style) '
+style = 'bold green'
 
 [git_branch]
-symbol = '🌱 '
-format = 'on [$symbol$branch(:$remote_branch)](bold green) '
-
-palette = "catppuccin_macchiato"
+symbol = '󰊢'
+format = 'on [$symbol $branch]($style) '
+style = 'bold green'
 
 [palettes.catppuccin_latte]
 rosewater = "#dc8a78"
