@@ -1,0 +1,24 @@
+[[session]]
+name = "tmux"
+path = "~/dotfiles/tmux/.config/tmux"
+startup_command = "nvim tmux.conf"
+
+[[session]]
+name = "neovim"
+path = "~/dotfiles/nvim/.config/nvim"
+
+[[session]]
+name = "zshrc"
+path = "~/dotfiles/zsh"
+startup_command = "nvim .zshrc"
+
+[[session]]
+name = "sesh"
+path = "~/dotfiles/sesh/.config/sesh"
+startup_command = "nvim sesh.toml"
+
+[[session]]
+name = "starship"
+path = "~/dotfiles/starship/.config"
+startup_command = "nvim starship.toml"
+
