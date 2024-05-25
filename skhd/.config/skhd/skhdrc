@@ -23,6 +23,3 @@ alt - r : yabai -m space --balance
 
 # toggle window split type - t(oggle)
 alt - t : yabai -m window --toggle split; yabai -m space --balance
-
-# open kitty
-cmd - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~ -e tmux
