@@ -17,6 +17,9 @@ fi
 # Source/Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
 
+# asdf
+. "$HOME/.asdf/asdf.sh"
+
 # Plugins
 # -------
 # starship
