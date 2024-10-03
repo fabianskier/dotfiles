@@ -14,3 +14,6 @@ export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 
 # iex history
 export ERL_AFLAGS="-kernel shell_history enabled"
+
+# rust
+. "$HOME/.cargo/env"
