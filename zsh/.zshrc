@@ -87,3 +87,21 @@ export STARSHIP_CONFIG=~/.config/starship.toml
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# gnu-sed
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+
+# coreutils
+export PATH="opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+
+# psql
+export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
+
+# iex history
+export ERL_AFLAGS="-kernel shell_history enabled"
+
+# install erlang documenation
+export KERL_CONFIGURE_OPTIONS="--enable-docs --enable-man-docs --enable-ansi-docs"
+
+# rust
+. "$HOME/.cargo/env"
