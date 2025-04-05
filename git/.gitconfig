@@ -24,3 +24,6 @@
 [core]
 	editor = nvim
 	excludesfile = /Users/fabianskier/.gitignore_global
+
+[pull]
+	rebase = false

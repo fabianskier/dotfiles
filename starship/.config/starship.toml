@@ -6,11 +6,12 @@ palette = "catppuccin_macchiato"
 
 # prompt
 format = '$character'
-right_format = '$directory$git_branch'
+right_format = '$directory'
 
 [directory]
-home_symbol = '🏠'
-format = ' at [$path]($style)[$read_only]($read_only_style) '
+format = 'at [$path]($style)[$read_only]($read_only_style) '
+truncate_to_repo = false
+truncation_length = -1
 style = 'bold green'
 
 [git_branch]

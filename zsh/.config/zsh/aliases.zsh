@@ -1,9 +1,9 @@
-# docker
-alias up='docker compose up -d'
-alias down='docker compose down -v'
+# Zsh Aliases
+# -----------
+# Reload the current Zsh configuration file
+alias so='source ~/.zshenv && source ~/.zshrc'
 
-# zsh
-alias so='source ~/.zshrc'
-
-# custom
-alias cv='cp ~/shared/hqconversions-v2/backend/.env ./backend/.env && cp ~/shared/hqconversions-v2/frontend/.env ./frontend/.env'
+# Eza Aliases (Replacing ls)
+# --------------------------
+# Show a detailed long listing with human-readable file sizes, including hidden files
+alias ls='eza -alh --icons'
