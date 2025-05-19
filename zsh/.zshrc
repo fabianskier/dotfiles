@@ -81,3 +81,9 @@ export STARSHIP_CONFIG=~/.config/starship.toml
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+# Load NVM (Node Version Manager)
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export ZDOTDIR=$HOME

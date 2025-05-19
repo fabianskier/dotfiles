@@ -1,24 +1,23 @@
 [[session]]
-name = "tmux"
-path = "~/dotfiles/tmux/.config/tmux"
-startup_command = "nvim tmux.conf"
+name = "agencieshq"
+path = "~/work/agencieshq/master"
 
 [[session]]
-name = "neovim"
-path = "~/dotfiles/nvim/.config/nvim"
+name = "has_data_imports"
+path = "~/work/gems/has_data_imports/master"
 
 [[session]]
-name = "zshrc"
-path = "~/dotfiles/zsh"
-startup_command = "nvim .zshrc"
+name = "has_helpers"
+path = "~/work/gems/has_helpers/master"
 
 [[session]]
-name = "sesh"
-path = "~/dotfiles/sesh/.config/sesh"
-startup_command = "nvim sesh.toml"
+name = "hq-graphql"
+path = "~/work/gems/hq-graphql/master"
 
 [[session]]
-name = "starship"
-path = "~/dotfiles/starship/.config"
-startup_command = "nvim starship.toml"
+name = "readygop"
+path = "~/work/readygop/main"
 
+[[session]]
+name = "readygop-ui"
+path = "~/work/readygop-ui/main"

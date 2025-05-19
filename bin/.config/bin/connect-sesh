@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Seleccionar la sesión usando gum
+selected_session=$(sesh list -i | gum filter --limit 1 --placeholder "Choose a session" --height 50 --prompt "⚡")
+
+# Si se seleccionó una sesión, conectar a ella
+if [[ -n "$selected_session" ]]; then
+    sesh connect "$selected_session"
+else
+    echo "No session selected."
+fi
+
