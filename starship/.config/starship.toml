@@ -1,0 +1,27 @@
+# Ultra minimal Starship config
+
+# Do not insert a blank line between prompts
+add_newline = false
+
+# Prompt layout: only the symbol
+format = '$character'
+# Right side: path and git branch (if repo)
+right_format = '$directory$git_branch'
+
+# Directory (always shown)
+[directory]
+format = ' [$path]($style) '
+truncate_to_repo = true
+style = 'bold green'
+
+# Git branch (only shown in repos)
+[git_branch]
+symbol = ''                # no icon
+format = ' [$branch]($style) '
+style = 'green'
+
+# Prompt symbol
+[character]
+success_symbol = '[❯](bold green)'
+error_symbol = '[❯](bold red)'
+vicmd_symbol = '[❮](bold green)'
