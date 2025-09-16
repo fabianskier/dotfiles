@@ -22,3 +22,6 @@ zinit light Aloxaf/fzf-tab
 
 ### Oh My Zsh snippet
 zinit snippet OMZP::dotenv
+
+### Atuin (shell history search)
+eval "$(atuin init zsh)"

@@ -1,0 +1,22 @@
+# Atuin configuration file
+# Docs: https://atuin.sh/docs/config
+
+# General
+auto_sync = true
+update_check = true
+search_mode = "fuzzy"          # fuzzy | prefix | fulltext | regex
+filter_mode = "global"         # global | host | session | directory
+
+# History
+history_filter = ["ls", "cd", "pwd"]  # commands NOT to save
+save_on_cmd_only = true
+
+# UI
+style = "auto"                 # auto | full | compact
+show_preview = true
+inline_height = 20             # number of lines in inline search
+invert = false                  # reverse order
+exit_mode = "return-original"  # return-original | return-query
+
+# Sync
+sync_frequency = "10m"         # how often to sync
