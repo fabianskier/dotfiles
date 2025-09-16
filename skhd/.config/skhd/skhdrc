@@ -1,0 +1,60 @@
+# ──────────────────────────────
+# Focus window (Vim-style keys)
+# ──────────────────────────────
+alt - h : yabai -m window --focus west
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - l : yabai -m window --focus east
+
+# ──────────────────────────────
+# Swap window with neighbor
+# ──────────────────────────────
+alt - shift - h : yabai -m window --swap west
+alt - shift - j : yabai -m window --swap south
+alt - shift - k : yabai -m window --swap north
+alt - shift - l : yabai -m window --swap east
+
+# ──────────────────────────────
+# Move window to another space
+# ──────────────────────────────
+alt - 1 : yabai -m window --space 1; yabai -m space --focus 1
+alt - 2 : yabai -m window --space 2; yabai -m space --focus 2
+alt - 3 : yabai -m window --space 3; yabai -m space --focus 3
+alt - 4 : yabai -m window --space 4; yabai -m space --focus 4
+alt - 5 : yabai -m window --space 5; yabai -m space --focus 5
+alt - 6 : yabai -m window --space 6; yabai -m space --focus 6
+alt - 7 : yabai -m window --space 7; yabai -m space --focus 7
+alt - 8 : yabai -m window --space 8; yabai -m space --focus 8
+alt - 9 : yabai -m window --space 9; yabai -m space --focus 9
+
+# ──────────────────────────────
+# Move window to another display (multi-monitor)
+# ──────────────────────────────
+alt - shift - 1 : yabai -m window --display 1; yabai -m display --focus 1
+alt - shift - 2 : yabai -m window --display 2; yabai -m display --focus 2
+alt - shift - 3 : yabai -m window --display 3; yabai -m display --focus 3
+
+# ──────────────────────────────
+# Window state toggles
+# ──────────────────────────────
+alt - f : yabai -m window --toggle zoom-fullscreen     # fullscreen
+alt - space : yabai -m window --toggle float           # toggle float
+alt - t : yabai -m window --toggle split; yabai -m space --balance
+
+# ──────────────────────────────
+# Resize windows (hold alt+cmd + hjkl)
+# ──────────────────────────────
+alt + cmd - h : yabai -m window --resize left:-50:0
+alt + cmd - j : yabai -m window --resize bottom:0:50
+alt + cmd - k : yabai -m window --resize top:0:-50
+alt + cmd - l : yabai -m window --resize right:50:0
+
+# ──────────────────────────────
+# Balance space
+# ──────────────────────────────
+alt - r : yabai -m space --balance
+
+# ──────────────────────────────
+# Restart services quickly
+# ──────────────────────────────
+alt - q : brew services restart yabai; brew services restart skhd

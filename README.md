@@ -44,3 +44,27 @@ stow -D zsh
 Simply edit the files inside ~/dotfiles/.
 Then re-run stow if you add new ones.
 
+## ⌨️ skhd (Hotkeys for Yabai)
+
+This repository includes my `skhd` configuration to control [yabai](https://github.com/koekeishiya/yabai) with Vim-style keybindings.
+
+### 🔹 Installation
+```bash
+brew install koekeishiya/formulae/skhd
+brew services start skhd
+```
+
+### 🔹 Keybindings
+
+| Keys                   | Action                               |
+|------------------------|--------------------------------------|
+| `alt + h/j/k/l`        | Focus window (left, down, up, right) |
+| `alt + shift + h/j/k/l`| Swap window with neighbor            |
+| `alt + 1..9`           | Move window to space N and focus it  |
+| `alt + shift + 1..3`   | Move window to display N             |
+| `alt + f`              | Toggle fullscreen (yabai zoom)       |
+| `alt + space`          | Toggle float / tiling                |
+| `alt + t`              | Toggle split orientation             |
+| `alt + cmd + h/j/k/l`  | Resize window in that direction      |
+| `alt + r`              | Balance all windows in current space |
+| `alt + q`              | Restart yabai + skhd services        |
