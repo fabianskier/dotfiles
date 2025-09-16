@@ -24,3 +24,6 @@ node_modules/
 # Zsh / Shell
 .zcompdump*
 .zsh_sessions
+
+# Ignore tmux plugins managed by TPM
+tmux/.config/tmux/plugins/
