@@ -1,0 +1,14 @@
+# balance size of windows - r(eset)
+alt - r : yabai -m space --balance
+
+# toggle window split type - t(oggle)
+alt - t : yabai -m window --toggle split; yabai -m space --balance
+
+# fullscreen zoom - f(ull)
+alt - f : yabai -m window --toggle zoom-fullscreen
+
+# Swap con Super + Alt + Arrow
+alt - left  : yabai -m window --swap west
+alt - up    : yabai -m window --swap north
+alt - right : yabai -m window --swap east
+alt - down  : yabai -m window --swap south
