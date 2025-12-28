@@ -1,4 +1,4 @@
-alias so="source ~/.config/zsh/.zshrc"
+alias so="source ~/.zshrc"
 alias cd='z'
 alias ll="eza --icons"
 alias ls="eza -la --icons"
