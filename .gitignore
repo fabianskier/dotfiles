@@ -27,3 +27,6 @@ node_modules/
 
 # Ignore tmux plugins managed by TPM
 tmux/.config/tmux/plugins/
+
+# Ignore nvim. We use kickstart.nvim
+nvim

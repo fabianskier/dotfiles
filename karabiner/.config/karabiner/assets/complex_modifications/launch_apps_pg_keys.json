@@ -1,0 +1,62 @@
+{
+  "title": "Launch apps with PgUp / PgDn / Home / End (Keychron only)",
+  "rules": [
+    {
+      "description": "PgUp/PgDn/Home/End launch apps (only Keychron K3 Pro)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": { "key_code": "page_up", "modifiers": { "optional": ["any"] } },
+          "to": [{ "shell_command": "open -a \"Kitty\"" }],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                { "vendor_id": 13364, "product_id": 560 }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "page_down", "modifiers": { "optional": ["any"] } },
+          "to": [{ "shell_command": "open -a \"Safari\"" }],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                { "vendor_id": 13364, "product_id": 560 }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "home", "modifiers": { "optional": ["any"] } },
+          "to": [{ "shell_command": "open -a \"ChatGPT\"" }],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                { "vendor_id": 13364, "product_id": 560 }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "end", "modifiers": { "optional": ["any"] } },
+          "to": [{ "shell_command": "open -a \"WhatsApp\"" }],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                { "vendor_id": 13364, "product_id": 560 }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
