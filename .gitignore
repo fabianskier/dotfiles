@@ -27,3 +27,6 @@ node_modules/
 
 # Claude Code
 .claude
+
+# External themes (downloaded via `make themes`)
+kitty/.config/kitty/themes/
