@@ -1,0 +1,49 @@
+add_newline = false
+
+format = '$character'
+right_format = '$directory$git_branch$cmd_duration$nodejs$python$golang$rust'
+
+# Directory
+[directory]
+format = ' [$path]($style) '
+truncate_to_repo = true
+style = 'bold #a6da95'
+
+# Git branch
+[git_branch]
+symbol = ''
+format = ' [$branch]($style) '
+style = '#8aadf4'
+
+# Git status (disabled — conflicts with worktrees)
+[git_status]
+disabled = true
+
+# Command duration (only shown if > 2s)
+[cmd_duration]
+min_time = 2_000
+format = ' [$duration]($style) '
+style = '#eed49f'
+
+# Language modules (shown only in relevant projects)
+[nodejs]
+format = ' [$version]($style) '
+style = '#a6da95'
+
+[python]
+format = ' [$version]($style) '
+style = '#eed49f'
+
+[golang]
+format = ' [$version]($style) '
+style = '#8aadf4'
+
+[rust]
+format = ' [$version]($style) '
+style = '#ed8796'
+
+# Prompt symbol
+[character]
+success_symbol = '[❯](bold #a6da95)'
+error_symbol = '[❯](bold #ed8796)'
+vicmd_symbol = '[❮](bold #a6da95)'
