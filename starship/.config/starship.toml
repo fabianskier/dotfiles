@@ -1,7 +1,7 @@
 add_newline = false
 
 format = '$character'
-right_format = '$directory$git_branch$cmd_duration$nodejs$python$golang$rust'
+right_format = '$directory$git_branch$nodejs$python$golang$rust'
 
 # Directory
 [directory]
@@ -18,12 +18,6 @@ style = '#8aadf4'
 # Git status (disabled — conflicts with worktrees)
 [git_status]
 disabled = true
-
-# Command duration (only shown if > 2s)
-[cmd_duration]
-min_time = 2_000
-format = ' [$duration]($style) '
-style = '#eed49f'
 
 # Language modules (shown only in relevant projects)
 [nodejs]
