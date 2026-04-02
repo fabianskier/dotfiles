@@ -7,6 +7,12 @@ alt - t : yabai -m window --toggle split; yabai -m space --balance
 # Fullscreen zoom
 alt - f : yabai -m window --toggle zoom-fullscreen
 
+# Focus window (vim-style)
+alt - h : yabai -m window --focus west
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - l : yabai -m window --focus east
+
 # Swap windows
 alt - left  : yabai -m window --swap west
 alt - up    : yabai -m window --swap north
