@@ -1,15 +1,13 @@
-# ==============================
-# Homebrew taps
-# ==============================
-tap "homebrew/core"
-tap "asmvik/formulae"
-
-# ==============================
-# CLI tools
-# ==============================
+# Core
 brew "stow"
+
+# Shell
+brew "zsh"
+brew "zoxide"
 brew "atuin"
-brew "yabai"
-brew "skhd"
-brew "zsh-autosuggestions"
-brew "zsh-syntax-highlighting"
+brew "starship"
+brew "eza"
+
+# Terminal
+cask "ghostty"
+cask "font-jetbrains-mono-nerd-font"
