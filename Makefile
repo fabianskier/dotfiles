@@ -1,10 +1,10 @@
 SHELL := /bin/bash
 HOMEBREW_PREFIX := /opt/homebrew
 
-.PHONY: all install brew themes stow
+.PHONY: all install brew stow use-work use-personal git-status
 
 # Full setup on a new Mac
-install: brew themes stow
+install: brew stow
 
 # Install Homebrew if missing, then install Brewfile dependencies
 brew:
@@ -27,3 +27,21 @@ stow:
 		echo "  stow $$name"; \
 		$(HOMEBREW_PREFIX)/bin/stow --restow "$$name"; \
 	done
+
+# Git configuration management
+use-work:
+	@echo "→ Configurando Git para TRABAJO..."
+	@cp ~/.gitconfig-work ~/.gitconfig
+	@echo "✓ Config seteada"
+	@git config user.name && git config user.email
+
+use-personal:
+	@echo "→ Configurando Git para PERSONAL..."
+	@cp ~/.gitconfig-personal ~/.gitconfig
+	@echo "✓ Config seteada"
+	@git config user.name && git config user.email
+
+git-status:
+	@echo "Git config actual:"
+	@git config user.name
+	@git config user.email

@@ -1,0 +1,12 @@
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[alias]
+	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+	s = status
+	w = worktree
+[user]
+	name = fabianskier
+	email = fabianskier@icloud.com
