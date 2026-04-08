@@ -12,3 +12,7 @@ brew "zsh-syntax-highlighting"
 # Terminal
 cask "ghostty"
 cask "font-jetbrains-mono-nerd-font"
+
+# Window Manager
+brew "yabai"
+brew "skhd"

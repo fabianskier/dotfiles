@@ -1,1 +1,39 @@
+# Generated config files
 .gitconfig
+.gitconfig.bak
+
+# Local configuration
+local/
+.local/
+*.local
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+logs/
+
+# Dependencies
+node_modules/
+*.egg-info/
+
+# Temporary files
+tmp/
+temp/
+*.tmp

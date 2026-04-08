@@ -1,0 +1,227 @@
+# Dotfiles
+
+Personal macOS configuration files managed with GNU Stow.
+
+## Quick Start
+
+### New Mac Setup
+```bash
+git clone https://github.com/fabianskier/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
+make install
+```
+
+This will:
+1. Install Homebrew and all packages
+2. Link dotfiles with stow
+3. Download Ghostty theme (Catppuccin Mocha)
+4. Configure macOS Mission Control hotkeys
+5. Set up Yabai and skhd window manager
+
+### Environment Selection
+
+Switch between work and personal Git configs:
+```bash
+make use-work      # Configure for work
+make use-personal  # Configure for personal
+make git-status    # Check current config
+```
+
+## What's Included
+
+### Terminal & Shell
+- **zsh** - Shell with custom config
+- **zoxide** - Smarter cd navigation
+- **starship** - Fast, minimal prompt
+- **eza** - Modern ls replacement
+- **zsh-autosuggestions** - Command suggestions
+- **zsh-syntax-highlighting** - Syntax highlighting
+
+### Terminal Emulator
+- **Ghostty** - Fast terminal emulator
+- **Catppuccin Mocha** - Color theme
+
+### Window Manager
+- **Yabai** - Tiling window manager
+- **skhd** - Hotkey daemon for Yabai
+
+### Fonts
+- **JetBrains Mono Nerd Font** - Development font
+
+## Configuration Structure
+
+```
+dotfiles/
+├── zsh/                 # Shell configuration
+│   └── .config/zsh/
+├── starship/           # Prompt configuration
+│   └── .config/starship/
+├── ghostty/            # Terminal emulator config
+│   └── .config/ghostty/
+├── yabai/              # Window manager config
+│   ├── .config/yabai/
+│   └── .config/skhd/
+├── git/                # Git configuration
+├── scripts/            # Setup scripts
+├── Brewfile            # Homebrew packages
+├── Makefile            # Setup automation
+└── README.md          # This file
+```
+
+## Keyboard Shortcuts
+
+### Shell/Terminal (zsh)
+- `Ctrl+A` - Start of line
+- `Ctrl+E` - End of line
+- `Ctrl+R` - Search history
+- `Alt+F` - Forward word
+- `Alt+B` - Backward word
+
+### Window Manager (Yabai + skhd)
+| Action | Shortcut |
+|--------|----------|
+| Focus Left | Alt+H |
+| Focus Down | Alt+J |
+| Focus Up | Alt+K |
+| Focus Right | Alt+L |
+| Move Left | Alt+Shift+H |
+| Move Down | Alt+Shift+J |
+| Move Up | Alt+Shift+K |
+| Move Right | Alt+Shift+L |
+| Fullscreen | Alt+F |
+| Layout: BSP | Alt+B |
+| Layout: Stack | Alt+S |
+| Equalize | Alt+E |
+| Float Toggle | Alt+T |
+
+### Mission Control (macOS)
+| Action | Shortcut |
+|--------|----------|
+| Switch to Desktop 1-6 | Ctrl+1-6 |
+| Move window to Desktop 1-6 | Ctrl+Shift+1-6 |
+| Next Desktop | Ctrl+→ |
+| Previous Desktop | Ctrl+← |
+
+## Makefile Targets
+
+```bash
+make install          # Full setup (default)
+make brew            # Install Homebrew and packages
+make stow            # Link dotfiles with GNU Stow
+make themes          # Download terminal themes
+make macos-defaults  # Configure macOS hotkeys
+make yabai-config    # Configure Yabai and skhd
+make use-work        # Switch to work Git config
+make use-personal    # Switch to personal Git config
+make git-status      # Show current Git config
+make check           # Validate configuration
+```
+
+## Multi-Machine Setup
+
+For different machines (work vs personal), create machine-specific overrides:
+
+```bash
+# In ~/.dotfiles/
+mkdir -p local/
+cp zsh/.config/zsh/conf.d/tools.zsh local/tools.zsh.work
+# Edit local/tools.zsh.work with machine-specific settings
+```
+
+Then in your main config, source the local version if it exists.
+
+## First Time Setup
+
+1. **Clone the repo:**
+   ```bash
+   git clone https://github.com/fabianskier/dotfiles.git ~/.dotfiles
+   cd ~/.dotfiles
+   ```
+
+2. **Run setup:**
+   ```bash
+   make install
+   ```
+
+3. **Configure Git:**
+   ```bash
+   make use-work    # or use-personal
+   git config --global user.name "Your Name"
+   git config --global user.email "your@email.com"
+   ```
+
+4. **Restart terminal/Yabai:**
+   ```bash
+   exec zsh
+   ```
+
+5. **Verify everything:**
+   ```bash
+   make check
+   ```
+
+## System Requirements
+
+- macOS (Monterey or newer)
+- Xcode Command Line Tools
+- Homebrew
+- ~2GB free disk space
+
+## Troubleshooting
+
+### Yabai Permission Denied
+If you get "Permission denied" errors with Yabai, reconfigure:
+```bash
+make yabai-config
+```
+
+### zsh shortcuts not working
+Reload zsh configuration:
+```bash
+exec zsh
+```
+
+### Stow conflicts
+If stow can't create symlinks:
+```bash
+make stow --verbose
+```
+
+### Git config issues
+Check current config:
+```bash
+make git-status
+```
+
+Reset and reconfigure:
+```bash
+make use-personal
+```
+
+## Manual Steps
+
+Some things still require manual configuration:
+
+- **Terminal Preferences**: Open Ghostty preferences if color theme doesn't apply
+- **Yabai SIP**: For full Yabai functionality on personal machine, disable SIP ([instructions](https://github.com/asmvik/yabai/wiki/Installing-yabai-(latest-release)))
+- **System Preferences**: Check keyboard shortcuts in System Settings > Keyboard
+
+## Updates
+
+Keep dotfiles updated:
+```bash
+cd ~/.dotfiles
+git pull
+make install  # Re-apply all configurations
+```
+
+## License
+
+Personal configuration files. Use as inspiration for your own setup!
+
+## Notes
+
+- Configurations are heavily customized for personal workflow
+- Some settings are macOS-specific
+- Designed for development-focused workflow
+- Yabai requires some manual SIP configuration for full features
