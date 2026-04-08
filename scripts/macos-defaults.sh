@@ -9,6 +9,28 @@ DESIRED_SPACES=5
 echo "→ Configuring macOS Mission Control..."
 echo ""
 
+# Disable animations for faster workspace switching
+echo "→ Optimizing macOS for speed..."
+
+# Mission Control and Spaces
+defaults write com.apple.dock workspaces-auto-swoosh -bool false       # No animation between spaces
+defaults write com.apple.dock mru-spaces -bool false                   # Don't rearrange spaces
+defaults write com.apple.dock expose-animation-duration -float 0       # Instant Expose
+
+# General animations
+defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
+defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
+
+# Dock
+defaults write com.apple.dock autohide-delay -float 0                  # Instant dock show
+defaults write com.apple.dock show-recents -bool false                 # Hide recent apps
+
+# Finder
+defaults write com.apple.finder DisableAllAnimations -bool true
+
+echo "✓ macOS optimized for speed"
+echo ""
+
 # Backup original plist
 if [ ! -f "$PLIST.backup" ]; then
     cp "$PLIST" "$PLIST.backup"
