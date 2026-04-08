@@ -113,10 +113,16 @@ dotfiles/
 ### Mission Control (macOS)
 | Action | Shortcut |
 |--------|----------|
-| Switch to Desktop 1-6 | Ctrl+1-6 |
-| Move window to Desktop 1-6 | Ctrl+Shift+1-6 |
+| Switch to Desktop 1-9 | Ctrl+1-9 |
+| Move window to Desktop 1-9 | Ctrl+Shift+1-9 |
 | Next Desktop | Ctrl+→ |
 | Previous Desktop | Ctrl+← |
+
+**Multi-Monitor Setup:**
+- Laptop alone: 1-5 desktops
+- Laptop + Monitor: up to 9 desktops (4-5 per monitor)
+- Each monitor has independent desktop spaces
+- Hotkeys work on whichever monitor is active
 
 ## Makefile Targets
 
