@@ -78,23 +78,23 @@ add_hotkey() {
     /usr/libexec/PlistBuddy -c "Set :$key:value:type string standard" "$PLIST" 2>/dev/null || true
 }
 
-# Switch to Desktop 1-6 with Ctrl+1-6
-# Key 60-65, keycodes 49-54 (1-6), modifier 59 (Ctrl), flags 262144
-for i in {0..5}; do
+# Switch to Desktop 1-9 with Ctrl+1-9
+# Key 60-68, keycodes 49-57 (1-9), modifier 59 (Ctrl), flags 262144
+for i in {0..8}; do
     key=$((60 + i))
     keycode=$((49 + i))
     add_hotkey "$key" "$keycode" "59" "262144"
 done
-echo "✓ Configured Ctrl+1-6 for Desktop switching"
+echo "✓ Configured Ctrl+1-9 for Desktop switching"
 
-# Move window to Desktop 1-6 with Ctrl+Shift+1-6
-# Key 66-71, keycodes 49-54 (1-6), modifier 59 (Ctrl), flags 786432 (Ctrl+Shift)
-for i in {0..5}; do
+# Move window to Desktop 1-9 with Ctrl+Shift+1-9
+# Key 66-74, keycodes 49-57 (1-9), modifier 59 (Ctrl), flags 786432 (Ctrl+Shift)
+for i in {0..8}; do
     key=$((66 + i))
     keycode=$((49 + i))
     add_hotkey "$key" "$keycode" "59" "786432"
 done
-echo "✓ Configured Ctrl+Shift+1-6 for Moving windows"
+echo "✓ Configured Ctrl+Shift+1-9 for Moving windows"
 
 # Switch to next desktop with Ctrl+Right (key 124, keycode 124)
 add_hotkey "124" "124" "59" "262144"
@@ -110,8 +110,12 @@ sleep 1
 
 echo ""
 echo "✓ macOS Mission Control hotkeys configured"
-echo "  Ctrl+1-6: Switch to Desktop N"
-echo "  Ctrl+Shift+1-6: Move window to Desktop N"
+echo "  Ctrl+1-9: Switch to Desktop N"
+echo "  Ctrl+Shift+1-9: Move window to Desktop N"
 echo "  Ctrl+← / Ctrl+→: Previous/Next Desktop"
+echo ""
+echo "  Works with:"
+echo "  • Laptop alone: 1-5 desktops"
+echo "  • Laptop + Monitor: up to 9 desktops (4-5 per monitor)"
 echo ""
 echo "Note: May require logout/login to take full effect"
