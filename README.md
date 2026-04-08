@@ -4,19 +4,35 @@ Personal macOS configuration files managed with GNU Stow.
 
 ## Quick Start
 
-### New Mac Setup
+### Setup Workflow (3 minutes)
+
+**Step 1: Clone and install (~2 minutes)**
 ```bash
 git clone https://github.com/fabianskier/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 make install
 ```
 
-This will:
-1. Install Homebrew and all packages
-2. Link dotfiles with stow
-3. Download Ghostty theme (Catppuccin Mocha)
-4. Configure macOS Mission Control hotkeys
-5. Set up Yabai and skhd window manager
+This installs:
+- ✅ Homebrew and all packages
+- ✅ All dotfiles (symlinked with stow)
+- ✅ Terminal theme (Catppuccin Mocha)
+- ✅ Mission Control hotkeys (Ctrl+1-6, etc.)
+- ✅ Yabai window manager
+
+**Step 2: Create 5 workspaces (~30 seconds, manual)**
+```
+1. Press F3 (Mission Control)
+2. Click + button in top-right
+3. Repeat until you have 5 desktops
+```
+
+**Step 3: Verify everything**
+```bash
+make check
+```
+
+That's it! Ready to use.
 
 ### Environment Selection
 
