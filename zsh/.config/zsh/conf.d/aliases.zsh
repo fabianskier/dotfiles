@@ -2,8 +2,15 @@
 
 # Zoxide aliases (smart directory jumping)
 alias z='zoxide query --interactive'    # Interactive directory selector
-alias zi='zoxide query --interactive'   # Same as above
+alias zi='zoxide query --interactive'   # Same as z
 alias zl='zoxide query -l'             # List all frecuent directories
+
+# Quick project shortcuts (using zoxide)
+alias cw='z cropwatch'         # Jump to cropwatch
+alias ca='z anski'             # Jump to anski
+alias cm='z crop-monitoring'   # Jump to crop-monitoring
+alias dt='z dotfiles'          # Jump to dotfiles
+alias dw='z work'              # Jump to work
 
 # Git aliases
 alias ga='git add'
@@ -21,8 +28,6 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias ~='cd ~'
-alias dotfiles='cd ~/.dotfiles'
-alias work='cd ~/work'
 
 # Listing
 alias ll='eza -lah'           # Long list with hidden
@@ -41,12 +46,6 @@ alias rm='rm -i'              # Ask before delete
 # Quick edits
 alias zshconfig='nano ~/.zshrc'
 alias dotconfig='cd ~/.dotfiles && nano README.md'
-
-# Shortcuts for work directories
-alias cw='z cropwatch'         # Jump to cropwatch
-alias ca='z anski'             # Jump to anski
-alias cm='z crop-monitoring'   # Jump to crop-monitoring
-alias dt='z dotfiles'          # Jump to dotfiles
 
 # Common commands
 alias reload='exec zsh'        # Reload shell config
