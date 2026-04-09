@@ -5,10 +5,7 @@ alias z='zoxide query --interactive'    # Interactive directory selector
 alias zi='zoxide query --interactive'   # Same as z
 alias zl='zoxide query -l'             # List all frecuent directories
 
-# Quick project shortcuts (using zoxide)
-alias cw='z cropwatch'         # Jump to cropwatch
-alias ca='z anski'             # Jump to anski
-alias cm='z crop-monitoring'   # Jump to crop-monitoring
+# Quick shortcuts
 alias dt='z dotfiles'          # Jump to dotfiles
 alias dw='z work'              # Jump to work
 
