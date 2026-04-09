@@ -1,9 +1,8 @@
 # Useful aliases for development workflow
 
-# Zoxide aliases (smart directory jumping)
-alias z='zoxide query --interactive'    # Interactive directory selector
-alias zi='zoxide query --interactive'   # Same as z
-alias zl='zoxide query -l'             # List all frecuent directories
+# Zoxide is initialized in tools.zsh
+# Just use: z <name> to jump
+# Or: zi for interactive selector
 
 # Quick shortcuts
 alias dt='z dotfiles'          # Jump to dotfiles
