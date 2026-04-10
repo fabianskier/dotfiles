@@ -29,6 +29,30 @@ local plugins = {
       vim.cmd("colorscheme catppuccin")
     end,
   },
+
+  -- Oil.nvim - File explorer
+  {
+    "stevearc/oil.nvim",
+    opts = {
+      default_file_explorer = true,
+    },
+    config = function(_, opts)
+      require("oil").setup(opts)
+      vim.keymap.set("n", "-", require("oil").open, { noremap = true, silent = true })
+    end,
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
+
+  -- Web Devicons (required by oil)
+  {
+    "nvim-tree/nvim-web-devicons",
+  },
+
+  -- Vim-tmux-navigator - Seamless navigation between tmux and vim
+  {
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
+  },
 }
 
 require("lazy").setup(plugins)
