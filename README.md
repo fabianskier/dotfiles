@@ -61,13 +61,6 @@ make git-status    # Check current config
 - **Yabai** - Tiling window manager
 - **skhd** - Hotkey daemon for Yabai
 
-### Text Editor
-- **Neovim** - Modern terminal-based editor
-- **Treesitter** - Advanced syntax highlighting
-- **LSP** - Language Server Protocol support
-- **Telescope** - Fuzzy finder
-- **Catppuccin** - Color theme
-
 ### Terminal Multiplexer
 - **tmux** - Session management and multiplexing
 - **Catppuccin Mocha** - Color theme
@@ -85,10 +78,8 @@ dotfiles/
 │   └── .config/starship/
 ├── ghostty/            # Terminal emulator config
 │   └── .config/ghostty/
-├── neovim/             # Neovim editor config
+├── neovim/             # Neovim editor config (WIP)
 │   └── .config/nvim/
-│       ├── init.lua
-│       └── lua/config/
 ├── tmux/               # Terminal multiplexer config
 │   └── .config/tmux/
 ├── yabai/              # Window manager config
@@ -153,22 +144,6 @@ dotfiles/
 | Split Vertical | `prefix v` |
 | Split Horizontal | `prefix s` |
 | Reload Config | `prefix r` |
-
-### Text Editor (Neovim)
-| Action | Shortcut |
-|--------|----------|
-| Window Left | Ctrl+H |
-| Window Down | Ctrl+J |
-| Window Up | Ctrl+K |
-| Window Right | Ctrl+L |
-| Find Files | Space+F+F |
-| Live Grep | Space+F+G |
-| Buffers | Space+F+B |
-| Delete Buffer | Space+B+D |
-| Next Buffer | Space+B+N |
-| Previous Buffer | Space+B+P |
-| Save | Space+W |
-| Quit | Space+Q |
 
 ## Makefile Targets
 
