@@ -16,3 +16,9 @@ cask "font-jetbrains-mono-nerd-font"
 # Window Manager
 brew "yabai"
 brew "skhd"
+
+# Text Editor
+brew "neovim"
+
+# Terminal Multiplexer
+brew "tmux"
