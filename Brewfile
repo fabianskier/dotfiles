@@ -20,5 +20,8 @@ brew "skhd"
 # Text Editor
 brew "neovim"
 
+# Development
+brew "openjdk@21"
+
 # Terminal Multiplexer
 brew "tmux"
