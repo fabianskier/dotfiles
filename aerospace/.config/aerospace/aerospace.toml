@@ -15,7 +15,7 @@ inner.horizontal = 8
 inner.vertical = 8
 outer.left = 8
 outer.bottom = 8
-outer.top = 44
+outer.top = 0
 outer.right = 8
 
 # Sin monitor: solo workspaces 1-5 (en laptop)

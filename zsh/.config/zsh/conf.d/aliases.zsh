@@ -47,3 +47,6 @@ alias dotconfig='cd ~/.dotfiles && nano README.md'
 alias reload='exec zsh'        # Reload shell config
 alias update='brew update && brew upgrade'
 alias clean='brew cleanup'
+
+# Window manager
+alias sketchybar-reload='brew services restart sketchybar'
