@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 HOMEBREW_PREFIX := /opt/homebrew
 
-.PHONY: all install brew stow themes macos-defaults use-work use-personal git-status check
+.PHONY: all install brew stow themes macos-defaults use-work use-personal git-status check java
 
 # Full setup on a new Mac
 install: brew stow themes macos-defaults
@@ -51,6 +51,12 @@ macos-defaults:
 	@echo "→ Configuring macOS defaults..."
 	@bash scripts/macos-defaults.sh
 
+
+# Install Java (optional, large download)
+java:
+	@echo "→ Installing OpenJDK 21..."
+	$(HOMEBREW_PREFIX)/bin/brew install openjdk@21
+	@echo "✓ OpenJDK 21 installed"
 
 # Validate configuration
 check:

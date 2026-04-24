@@ -17,15 +17,13 @@ cask "font-jetbrains-mono-nerd-font"
 cask "nikitabobko/tap/aerospace"
 
 # Status Bar
-tap "FelixKratz/formulae"
+tap "felixkratz/formulae"
 brew "sketchybar"
 cask "font-sketchybar-app-font"
 
 # Text Editor
 brew "neovim"
 
-# Development
-brew "openjdk@21"
 
 # Terminal Multiplexer
 brew "tmux"
