@@ -1,10 +1,10 @@
 SHELL := /bin/bash
 HOMEBREW_PREFIX := /opt/homebrew
 
-.PHONY: all install brew stow themes macos-defaults use-work use-personal git-status check java
+.PHONY: all install brew stow themes macos-defaults use-work use-personal git-status check java sketchybar
 
 # Full setup on a new Mac
-install: brew stow themes macos-defaults
+install: brew stow themes macos-defaults sketchybar
 
 # Install Homebrew if missing, then install Brewfile dependencies
 brew:
@@ -53,6 +53,12 @@ macos-defaults:
 	@echo "→ Configuring macOS defaults..."
 	@bash scripts/macos-defaults.sh
 
+
+# Start sketchybar (restart if already running)
+sketchybar:
+	@echo "→ Starting sketchybar..."
+	@$(HOMEBREW_PREFIX)/bin/brew services restart sketchybar
+	@echo "✓ Sketchybar running"
 
 # Install Java (optional, large download)
 java:
