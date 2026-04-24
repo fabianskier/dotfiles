@@ -1,10 +1,10 @@
 SHELL := /bin/bash
 HOMEBREW_PREFIX := /opt/homebrew
 
-.PHONY: all install brew stow themes macos-defaults yabai-config use-work use-personal git-status check
+.PHONY: all install brew stow themes macos-defaults use-work use-personal git-status check
 
 # Full setup on a new Mac
-install: brew stow themes macos-defaults yabai-config
+install: brew stow themes macos-defaults
 
 # Install Homebrew if missing, then install Brewfile dependencies
 brew:
@@ -51,21 +51,6 @@ macos-defaults:
 	@echo "→ Configuring macOS defaults..."
 	@bash scripts/macos-defaults.sh
 
-# Configure Yabai and skhd
-yabai-config:
-	@echo "→ Configuring Yabai..."
-	@if ! command -v yabai &>/dev/null; then \
-		echo "✗ Yabai not installed. Run 'make brew' first."; \
-		exit 1; \
-	fi
-	@YABAI_HASH=$$(shasum -a 256 $$(which yabai) | cut -d " " -f 1); \
-	echo "fabianskier ALL=(root) NOPASSWD: sha256:$$YABAI_HASH $$(which yabai) --load-sa" | sudo tee /private/etc/sudoers.d/yabai > /dev/null
-	@echo "✓ Sudoers configured for Yabai"
-	@echo "→ Starting Yabai service..."
-	@yabai --start-service
-	@echo "→ Starting skhd service..."
-	@skhd --start-service
-	@echo "✓ Yabai and skhd running"
 
 # Validate configuration
 check:

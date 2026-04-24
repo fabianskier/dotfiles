@@ -14,8 +14,12 @@ cask "ghostty"
 cask "font-jetbrains-mono-nerd-font"
 
 # Window Manager
-brew "yabai"
-brew "skhd"
+cask "nikitabobko/tap/aerospace"
+
+# Status Bar
+tap "FelixKratz/formulae"
+brew "sketchybar"
+cask "font-sketchybar-app-font"
 
 # Text Editor
 brew "neovim"
