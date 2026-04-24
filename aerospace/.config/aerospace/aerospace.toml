@@ -13,9 +13,9 @@ exec-on-workspace-change = ['/bin/bash', '-c', '''
 [gaps]
 inner.horizontal = 8
 inner.vertical = 8
-outer.left = 8
+outer.left = 44
 outer.bottom = 8
-outer.top = 0
+outer.top = 8
 outer.right = 8
 
 # Sin monitor: solo workspaces 1-5 (en laptop)

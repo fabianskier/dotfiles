@@ -6,68 +6,52 @@ PLUGIN_DIR="$CONFIG_DIR/plugins"
 BAR_COLOR=0xff1e1e2e
 ACTIVE_BG=0xff89b4fa
 ACTIVE_FG=0xff1e1e2e
-TEXT=0xffcdd6f4
-SUBTEXT=0xff45475a
+SUBTEXT=0xffbac2de
 
 ##### Bar #####
 sketchybar --bar \
-  position=top \
-  height=28 \
+  position=left \
+  height=36 \
   color=$BAR_COLOR \
-  padding_left=8 \
-  padding_right=8 \
+  border_width=1 \
+  border_color=0xff313244 \
+  display=1 \
+  padding_left=36 \
+  padding_right=12 \
   shadow=off
 
 ##### Defaults #####
 sketchybar --default \
-  icon.font="JetBrainsMono Nerd Font:Bold:12.0" \
-  label.font="JetBrainsMono Nerd Font:Regular:12.0" \
-  icon.color=$SUBTEXT \
+  icon.font="JetBrainsMono Nerd Font:Bold:13.0" \
   label.drawing=off \
-  icon.padding_left=6 \
-  icon.padding_right=6 \
-  background.corner_radius=4 \
-  background.height=20 \
-  background.drawing=off \
-  padding_left=1 \
-  padding_right=1
+  icon.color=$SUBTEXT \
+  icon.padding_left=8 \
+  icon.padding_right=8 \
+  background.corner_radius=0 \
+  background.height=30 \
+  background.drawing=on \
+  background.color=0x00000000 \
+  padding_left=4 \
+  padding_right=4
 
-##### Aerospace events #####
+##### Aerospace event #####
 sketchybar --add event aerospace_workspace_change
-sketchybar --add event aerospace_monitor_change
 
-# Workspaces 1-5 → monitor externo (display 1)
-for sid in 1 2 3 4 5; do
+##### Workspaces 1-10 en monitor principal #####
+for sid in 1 2 3 4 5 6 7 8 9 10; do
+  label="$sid"
+  [ "$sid" = "10" ] && label="0"
   sketchybar --add item space.$sid left \
     --subscribe space.$sid aerospace_workspace_change \
     --set space.$sid \
       display=1 \
-      icon="$sid" \
+      icon="$label" \
       click_script="aerospace workspace $sid" \
       script="$PLUGIN_DIR/aerospace.sh $sid"
 done
-
-# Workspaces 6-10 → laptop (display 2)
-for sid in 6 7 8 9 10; do
-  sketchybar --add item space.$sid left \
-    --subscribe space.$sid aerospace_workspace_change \
-    --set space.$sid \
-      display=2 \
-      icon="$sid" \
-      click_script="aerospace workspace $sid" \
-      script="$PLUGIN_DIR/aerospace.sh $sid"
-done
-
-##### Right: solo clock #####
-sketchybar \
-  --add item clock right \
-  --set clock \
-    update_freq=10 \
-    script="$PLUGIN_DIR/clock.sh" \
-    icon.drawing=off \
-    label.drawing=on \
-    label.color=$SUBTEXT \
-    label.font="JetBrainsMono Nerd Font:Regular:12.0" \
-    background.drawing=off
 
 sketchybar --update
+
+# Trigger initial state con el workspace activo actual
+CURRENT=$(aerospace list-workspaces --focused 2>/dev/null)
+[ -n "$CURRENT" ] && sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE="$CURRENT"

@@ -50,3 +50,4 @@ alias clean='brew cleanup'
 
 # Window manager
 alias sketchybar-reload='brew services restart sketchybar'
+alias wm-reload='brew services restart sketchybar && aerospace reload-config'
