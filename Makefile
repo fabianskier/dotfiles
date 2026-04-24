@@ -14,6 +14,8 @@ brew:
 	else \
 		echo "→ Homebrew already installed"; \
 	fi
+	@echo "→ Adding taps..."
+	$(HOMEBREW_PREFIX)/bin/brew tap felixkratz/formulae
 	@echo "→ Installing packages from Brewfile..."
 	$(HOMEBREW_PREFIX)/bin/brew bundle
 
