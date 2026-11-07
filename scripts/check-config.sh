@@ -67,11 +67,17 @@ echo "Shell Tools:"
 check_tool "zoxide" "Zoxide"
 check_tool "starship" "Starship"
 check_tool "eza" "Eza"
+check_tool "bat" "Bat"
+
+echo
+echo "Editor & Multiplexer:"
+check_tool "nvim" "Neovim"
+check_tool "tmux" "Tmux"
 
 echo
 echo "Window Manager:"
-check_tool "yabai" "Yabai"
-check_tool "skhd" "Skhd"
+check_tool "aerospace" "AeroSpace"
+check_tool "sketchybar" "SketchyBar"
 
 echo
 echo "Terminal:"
@@ -89,8 +95,8 @@ check_file "$HOME/.config/zsh/conf.d/tools.zsh" "Zsh tools config"
 check_file "$HOME/.config/zsh/conf.d/history.zsh" "Zsh history config"
 check_file "$HOME/.config/zsh/conf.d/completions.zsh" "Zsh completions config"
 check_file "$HOME/.config/starship.toml" "Starship config"
-check_file "$HOME/.config/yabai/yabairc" "Yabai config"
-check_file "$HOME/.config/skhd/skhdrc" "Skhd config"
+check_file "$HOME/.config/aerospace/aerospace.toml" "AeroSpace config"
+check_file "$HOME/.config/sketchybar/sketchybarrc" "SketchyBar config"
 check_file "$HOME/.config/ghostty/config" "Ghostty config"
 
 echo
@@ -104,23 +110,23 @@ fi
 
 echo
 echo "Service Status:"
-if launchctl list | grep -q "com.asmvik.yabai"; then
-    echo -e "${GREEN}✓${NC} Yabai service running"
+if pgrep -x AeroSpace &>/dev/null; then
+    echo -e "${GREEN}✓${NC} AeroSpace running"
     ((CHECKS_PASSED++))
 else
-    echo -e "${YELLOW}⚠${NC} Yabai service not running (run 'make yabai-config')"
+    echo -e "${YELLOW}⚠${NC} AeroSpace not running (open -a AeroSpace)"
 fi
 
-if launchctl list | grep -q "com.koekeishiya.skhd"; then
-    echo -e "${GREEN}✓${NC} Skhd service running"
+if pgrep -x sketchybar &>/dev/null; then
+    echo -e "${GREEN}✓${NC} SketchyBar running"
     ((CHECKS_PASSED++))
 else
-    echo -e "${YELLOW}⚠${NC} Skhd service not running (run 'make yabai-config')"
+    echo -e "${YELLOW}⚠${NC} SketchyBar not running (run 'make sketchybar')"
 fi
 
 echo
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "Summary: ${GREEN}$CHECKS_PASSED passed${NC}, ${RED}$CHECKS_FAILED failed${NC}"
+echo -e "Summary: ${GREEN}$CHECKS_PASSED passed${NC}, ${RED}$CHECKS_FAILED failed${NC}"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 if [ $CHECKS_FAILED -eq 0 ]; then

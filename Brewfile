@@ -6,6 +6,7 @@ brew "zsh"
 brew "zoxide"
 brew "starship"
 brew "eza"
+brew "bat"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 
