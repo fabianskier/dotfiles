@@ -13,22 +13,22 @@ exec-on-workspace-change = ['/bin/bash', '-c', '''
 [gaps]
 inner.horizontal = 8
 inner.vertical = 8
-outer.left = 44
-outer.bottom = 8
+outer.left = 8
+outer.bottom = 44
 outer.top = 8
 outer.right = 8
 
-# Sin monitor: solo workspaces 1-5 (en laptop)
-# Con monitor: 1-5 en monitor externo, 6-10 en laptop
+# Laptop (izquierda): 9, 0 | Samsung (centro): 1-4 | LG (derecha): 5-8
+# Si falta un monitor, sus workspaces caen en la laptop
 [workspace-to-monitor-force-assignment]
-1 = ['^((?!built-in).)*$', 'built-in']
-2 = ['^((?!built-in).)*$', 'built-in']
-3 = ['^((?!built-in).)*$', 'built-in']
-4 = ['^((?!built-in).)*$', 'built-in']
-5 = ['^((?!built-in).)*$', 'built-in']
-6 = ['built-in']
-7 = ['built-in']
-8 = ['built-in']
+1 = ['samsung', 'built-in']
+2 = ['samsung', 'built-in']
+3 = ['samsung', 'built-in']
+4 = ['samsung', 'built-in']
+5 = ['lg', 'built-in']
+6 = ['lg', 'built-in']
+7 = ['lg', 'built-in']
+8 = ['lg', 'built-in']
 9 = ['built-in']
 10 = ['built-in']
 

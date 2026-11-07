@@ -10,14 +10,14 @@ SUBTEXT=0xffbac2de
 
 ##### Bar #####
 sketchybar --bar \
-  position=left \
+  position=bottom \
   height=36 \
   color=$BAR_COLOR \
   border_width=1 \
   border_color=0xff313244 \
-  display=1 \
-  padding_left=36 \
-  padding_right=12 \
+  display=all \
+  padding_left=8 \
+  padding_right=8 \
   shadow=off
 
 ##### Defaults #####
@@ -37,18 +37,30 @@ sketchybar --default \
 ##### Aerospace event #####
 sketchybar --add event aerospace_workspace_change
 
-##### Workspaces 1-10 en monitor principal #####
-for sid in 1 2 3 4 5 6 7 8 9 10; do
-  label="$sid"
+##### Workspaces (iguales en todos los monitores) #####
+# Laptop: 9 0 | Samsung: 1 2 3 4 | LG: 5 6 7 8
+add_space() {
+  local sid="$1" label="$1"
   [ "$sid" = "10" ] && label="0"
-  sketchybar --add item space.$sid left \
+  sketchybar --add item space.$sid center \
     --subscribe space.$sid aerospace_workspace_change \
     --set space.$sid \
-      display=1 \
       icon="$label" \
       click_script="aerospace workspace $sid" \
       script="$PLUGIN_DIR/aerospace.sh $sid"
-done
+}
+
+add_separator() {
+  sketchybar --add item "$1" center \
+    --set "$1" icon="|" icon.color=0xff45475a \
+      icon.padding_left=2 icon.padding_right=2
+}
+
+for sid in 9 10; do add_space $sid; done
+add_separator sep.laptop
+for sid in 1 2 3 4; do add_space $sid; done
+add_separator sep.samsung
+for sid in 5 6 7 8; do add_space $sid; done
 
 sketchybar --update
 
