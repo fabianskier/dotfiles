@@ -1,0 +1,9 @@
+# Global mise config (tools available in every directory).
+# Project-specific versions live in each project's mise.toml.
+
+[tools]
+node = "26.13.1"                      # LTS, required by OpenSpec (>= 22.12)
+"npm:@fission-ai/openspec" = "2.0.0"  # spec-driven development CLI
+
+[env]
+OPENSPEC_TELEMETRY = "0"              # disable OpenSpec anonymous telemetry
