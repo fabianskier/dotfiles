@@ -28,3 +28,6 @@ brew "neovim"
 
 # Terminal Multiplexer
 brew "tmux"
+
+# Version Manager (Erlang, Elixir, Rust, ... per project)
+brew "mise"
