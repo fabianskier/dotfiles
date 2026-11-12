@@ -31,3 +31,6 @@ brew "tmux"
 
 # Version Manager (Erlang, Elixir, Rust, ... per project)
 brew "mise"
+
+# Development
+brew "gh"
